@@ -1,0 +1,572 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f5f1eb 0%, #e8e0d5 100%);
+  color: #5d4037;
+  min-height: 100vh;
+}
+
+/* Brown tone color scheme */
+:root {
+  --primary-brown: #8d6e63;
+  --secondary-brown: #a1887f;
+  --light-brown: #d7ccc8;
+  --dark-brown: #5d4037;
+  --accent-brown: #795548;
+  --cream: #f5f1eb;
+  --text-light: #ffffff;
+  --text-dark: #3e2723;
+  --input-text: #000000; /* Added for input text */
+  --shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+/* Button Styles */
+.btn {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-brown), var(--dark-brown));
+  color: var(--text-light);
+  box-shadow: 0 4px 15px rgba(141, 110, 99, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(141, 110, 99, 0.4);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--light-brown), var(--secondary-brown));
+  color: var(--text-dark);
+  box-shadow: 0 4px 15px rgba(168, 148, 135, 0.3);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(168, 148, 135, 0.4);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #e53935, #c62828);
+  color: var(--text-light);
+  box-shadow: 0 4px 15px rgba(229, 57, 53, 0.3);
+}
+
+.btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 57, 53, 0.4);
+}
+
+/* Navbar Styles - Desktop Optimized */
+.navbar {
+  background: linear-gradient(135deg, var(--dark-brown), var(--primary-brown));
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-brand {
+  color: var(--text-light);
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: 'Georgia', serif;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-light);
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-link:hover {
+  background-color: rgba(255,255,255,0.15);
+  transform: translateY(-1px);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--text-light);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 80%;
+}
+
+/* Search Bar - Fixed Text Color */
+.search-bar {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  width: 300px;
+  font-size: 16px;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  color: var(--input-text); /* Added black text color */
+}
+
+.search-bar::placeholder {
+  color: #666; /* Darker placeholder */
+}
+
+.search-bar:focus {
+  outline: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transform: scale(1.02);
+  color: var(--input-text); /* Ensure black text on focus */
+}
+
+/* Card Styles - Desktop Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  padding: 40px 0;
+}
+
+.product-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.product-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-info {
+  padding: 25px;
+}
+
+.product-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: var(--dark-brown);
+  font-weight: 600;
+}
+
+.product-price {
+  color: var(--dark-brown);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.artisan-name {
+  color: var(--secondary-brown);
+  font-style: italic;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+/* Form Styles - Desktop Optimized with Fixed Input Colors */
+.form-container {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 50px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--light-brown);
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--dark-brown);
+  font-size: 2.2rem;
+  font-weight: 300;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--dark-brown);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 15px 20px;
+  border: 2px solid var(--light-brown);
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: var(--cream);
+  color: var(--input-text); /* Added black text color */
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #666; /* Darker placeholder text */
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-brown);
+  box-shadow: 0 0 0 3px rgba(141, 110, 99, 0.1);
+  transform: scale(1.02);
+  color: var(--input-text); /* Ensure black text on focus */
+}
+
+/* Cart Styles - Desktop */
+.cart-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.cart-item-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 25px;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: var(--dark-brown);
+}
+
+/* Product Detail Page - Desktop Layout */
+.product-detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  padding: 40px 0;
+}
+
+.product-detail-image {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.product-detail-image:hover {
+  transform: scale(1.02);
+}
+
+.product-detail-info {
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.product-detail-info h1 {
+  font-size: 2.5rem;
+  color: var(--dark-brown);
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.product-detail-price {
+  font-size: 2.2rem;
+  color: var(--dark-brown);
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.product-detail-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  margin: 25px 0;
+}
+
+/* Role Selection - Desktop */
+.role-selection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.role-card {
+  background: white;
+  padding: 60px 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+
+.role-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+  border-color: var(--primary-brown);
+}
+
+.role-card h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--dark-brown);
+  font-weight: 300;
+}
+
+.role-card p {
+  font-size: 1.1rem;
+  color: var(--secondary-brown);
+  line-height: 1.6;
+}
+
+/* Artisan Dashboard - Desktop */
+.artisan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  margin-top: 60px;
+}
+
+.artisan-card {
+  background: linear-gradient(135deg, white, var(--cream));
+  padding: 80px 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+
+.artisan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  border-color: var(--primary-brown);
+}
+
+.artisan-card h3 {
+  font-size: 1.8rem;
+  color: var(--dark-brown);
+  margin-bottom: 15px;
+}
+
+/* Checkout Page - Desktop */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.order-summary {
+  background: white;
+  padding: 35px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 120px;
+}
+
+.order-summary h3 {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  color: var(--dark-brown);
+  border-bottom: 2px solid var(--light-brown);
+  padding-bottom: 15px;
+}
+
+/* Success Modal */
+.success-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.success-content {
+  background: white;
+  padding: 60px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+  max-width: 500px;
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Additional Input Color Fixes for Specific Components */
+.login-input,
+.signup-input,
+.checkout-input,
+.product-input {
+  color: var(--input-text) !important;
+}
+
+/* Ensure all text inputs have black text */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+textarea,
+select {
+  color: var(--input-text) !important;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="number"]::placeholder,
+input[type="url"]::placeholder,
+textarea::placeholder {
+  color: #666 !important;
+}
+
+/* Responsive Design for Larger Screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1600px;
+    padding: 60px;
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+  }
+  
+  .navbar {
+    padding: 1.5rem 4rem;
+  }
+  
+  .nav-brand {
+    font-size: 2.2rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow);
+}
+
+.rounded-lg {
+  border-radius: 16px;
+}
+
+.input-dark {
+  color: var(--input-text) !important;
+}
